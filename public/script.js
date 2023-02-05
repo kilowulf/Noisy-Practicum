@@ -22,14 +22,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // sound on click
+  const switch_on = new Audio('./assets/sound/switch_off.wav');
+  const switch_off = new Audio('./assets/sound/switch_on.wav');
+
   // Add class to body based on dark mode setting
   const toggleDarkMode = () => {
     darkMode = !darkMode;
     localStorage.setItem('darkMode', darkMode);
 
-    // sound on click
-    const switch_on = new audio();
-    const switch_off = new audio();
+    // switch sound
+    if (darkMode) {
+      switch_on.play();
+    } else {
+      switch_off.play();
+    }
 
     console.log(`User Pref: ${darkMode ? 'Light mode' : 'Dark mode'}`);
     console.log(
