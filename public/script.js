@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // sound on click
-  const switch_on = new Audio('./assets/sound/switch_off.wav');
-  const switch_off = new Audio('./assets/sound/switch_on.wav');
+  const switch_on = new Audio('./assets/sound/switch_on.mp3');
+  const switch_off = new Audio('./assets/sound/switch_off.mp3');
 
   // Add class to body based on dark mode setting
   const toggleDarkMode = () => {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('darkMode', darkMode);
 
     // switch sound
-    if (darkMode) {
+    if (!darkMode) {
       switch_on.play();
     } else {
       switch_off.play();
