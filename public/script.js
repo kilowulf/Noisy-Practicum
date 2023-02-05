@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
     darkMode = !darkMode;
     localStorage.setItem('darkMode', darkMode);
 
+    // sound on click
+    const switch_on = new audio();
+    const switch_off = new audio();
+
     console.log(`User Pref: ${darkMode ? 'Light mode' : 'Dark mode'}`);
     console.log(
       `Browser Pref: ${
