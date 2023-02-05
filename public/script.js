@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('darkMode', darkMode);
 
     // switch sound
-    if (!darkMode) {
-      switch_on.play();
-    } else {
-      switch_off.play();
-    }
+    // if (!darkMode) {
+    //   switch_on.play();
+    // } else {
+    //   switch_off.play();
+    // }
 
     console.log(`User Pref: ${darkMode ? 'Light mode' : 'Dark mode'}`);
     console.log(
@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // toggle mode button
   $('#btn-toggle').click(toggleDarkMode);
+  $('#btn-toggle').click(function () {
+    switch_on.play();
+  });
   $('#btn-toggle').text(!darkMode ? 'Light Mode' : 'Dark Mode');
 
   // Disable Add Log button until logs are displayed
@@ -166,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Iterate over the log data
             data.forEach((log) => {
               // set h3 header
+              // Make UVU ID visible only after course selection has been made
+
               // Update the innerHTML to show the chosen UVU ID
               $('#uvuIdDisplay').removeClass('d-none');
               $('#uvuIdDisplay').addClass('pt-8 text-white font-[RajdSemi]');
@@ -291,7 +296,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const logItem = $(`<li>`);
 
                 // Create the log date element
-                const logDate = $(`<div><small>${log.date}</small></div>`);
+                const logDate = $(
+                  `<div><small>${log.date}</small></div>`
+                ).addClass('text-lg font-[`RajdSemi`] border-x-gray-300');
+
                 $('small').addClass(
                   'text-lg font-[`RajdSemi`] border-x-gray-300'
                 );
@@ -334,6 +342,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       event.preventDefault();
       $('#logEntry').val('');
+    });
+    // reload page if course select set to 'choose courses'
+    $('#course').change(function () {
+      if ($(this).val() == '') {
+        location.reload();
+        return;
+      }
     });
   });
 });
