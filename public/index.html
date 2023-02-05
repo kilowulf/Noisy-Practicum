@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="dark" lang="en-US">
+  <head>
+    <title>Student Log</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./img/uvu_logo.jpg" type="image/png" />
+    <!-- Axios, JQuery CDN, Tailwind links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- UVU fonts -->
+    <style>
+      @font-face {
+        font-family: RajdLite;
+        src: url('./fonts/rajdhani-light-webfont.woff2'),
+          url('./fonts/rajdhani-light-webfont.woff');
+      }
+      @font-face {
+        font-family: RajdReg;
+        src: url('./fonts/rajdhani-regular-webfont.woff2'),
+          url('./fonts/rajdhani-regular-webfont.woff');
+      }
+      @font-face {
+        font-family: RajdSemi;
+        src: url('./fonts/rajdhani-semibold-webfont.woff2'),
+          url('./fonts/rajdhani-semibold-webfont.woff');
+      }
+
+      @font-face {
+        font-family: RajdBold;
+        src: url('./fonts/rajdhani-bold-webfont.woff2'),
+          url('./fonts/rajdhani-bold-webfont.woff');
+      }
+      @font-face {
+        font-family: RajdMed;
+        src: url('./fonts/rajdhani-medium-webfont.woff2'),
+          url('./fonts/rajdhani-medium-webfont.woff');
+      }
+    </style>
+  </head>
+  <body
+    class="
+      bg-[#4BA23F]
+      dark:
+      bg-[#275D38]
+      rounded
+      max-w-md
+      mx-auto
+      rounded-xl
+      shadow-md
+      overflow-hidden
+      md:max-w-2xl
+      bg-[url('./img/UVUHorizontalWhite-0011.png')] bg-cover bg-top
+      bg-[length:400px_150px]
+      bg-opacity-75 bg-repeat
+      font-['RajdReg']
+      text-base
+      m-10
+      p-10
+      bg-no-repeat
+    "
+  >
+    <header class="bg-green py-6 px-4">
+      <div class="mx-auto"></div>
+    </header>
+    <form
+      class="
+        text-centered
+        bg-auto bg-center bg-no-repeat
+        rounded
+        bg-[#275D38] bg-opacity-75
+        border
+        p-8
+      "
+      id="form"
+    >
+      <select
+        class="bg-white border border-gray-400 p-4 w-full text-black mb-3"
+        aria-label="Select Course"
+        id="course"
+        name="course"
+        data-cy="course_select"
+      >
+        <option selected value="">Choose Courses</option></select
+      ><br />
+
+      <label class="text-white" id="uvuIdLbl" for="uvuId">UVU ID</label><br />
+
+      <input
+        class="rounded bg-white border-2 border-gray-400 p-2.5 pb-4 mb-3 w-full"
+        type="text"
+        id="uvuId"
+        name="uvuId"
+        data-cy="uvuId_input"
+      />
+
+      <h3 class="d-none" id="uvuIdDisplay" data-cy="uvuIdDisplay">
+        Student Logs for 10234567
+      </h3>
+      <ul class="rounded log-entries mb-2 py-2" id="logs" data-cy="logs"></ul>
+      <label class="text-white" id="logLbl">New Log</label><br />
+      <textarea
+        class="rounded bg-gray-200 border border-gray-300 mb-1 p-10 w-full"
+        id="logEntry"
+        style="height: 75px"
+        aria-label="add log textarea"
+        data-cy="log_textarea"
+      ></textarea
+      ><br />
+
+      <button
+        class="
+          bg-[#e8e8e8]
+          hover:bg-[#1e482c]
+          text-[#275d38]
+          hover:text-[#fff]
+          font-['RajdBold']
+          py-2
+          px-4
+          rounded-full
+          focus:outline-none
+        "
+        id="addLog"
+        type="button"
+        data-cy="add_log_btn"
+      >
+        Add Log
+      </button>
+      <div>
+        <button
+          class="text-xs text-center px-4 text-white"
+          id="btn-toggle"
+        ></button>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- DB Reset is set as a command found in package.json: npm run rest-db    -->
+
+<!-- TODO: move all TODOs that done above to down below here and change the label to DONE:. -->
+<!-- DONE: set the lang attribute to American English : Done-->
+<!-- DONE: set the characterset to utf8 : Done-->
+<!-- DONE: temporarily use stackoverflow's favicon. "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico": Done-->
+<!-- DONE: Load your CSS file: Done -->
+<!-- DONE: The following options are currently static values to show you sample data.  -->
+<!-- DONE: Don't show the uvu id text input box until a course was selected above. Done -->
+<!-- DONE: If course ever becomes unselected, don't show the uvu id text input box. Done -->
+<!-- DONE: write `10234567` as sample data on the input field below : Done -->
+<!-- DONE: Ensure the character length never exceeds 8 Done -->
+<!-- DONE: Only numbers, no letters or other characters: Done-->
+<!-- DONE: When character length reaches 8 and it's only digits, fire off ajax request, if 200 or 304, display results, else appropriately guide the user. -->
+<!-- DONE: The following options are currently static values to show you an example.  -->
+<!-- You must replace them with dynamic data by ajaxing GET https://json-server-ft3qa5--3000.local.webcontainer.io/logs?courseId=<courseID>&uvuId=<uvuID> -->
+<!-- DONE: Click anywhere on the log to toggle visibility of the log (text only, not the date)-->
+<!-- DONE: Button should be disabled until there are logs displayed -->
+<!-- DONE: Script tag to your javascript file -->
+<!-- DONE: add appropriate comments you feel are necessary, if any, for the next coder to understand:
+    - db.json rest to db.bak.json via npm run rest-db (see package.json)
+-->
